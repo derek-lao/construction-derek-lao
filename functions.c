@@ -34,7 +34,7 @@ int printOut(struct food theFood)
 //Write a function that modifies values of your struct's type.
 int modify(struct food victim, char *namePointer, double *pricePointer, char newName[100], double newPrice)
 {
-  *namePointer = newName;
+  strncpy(namePointer, newName, strlen(newName));
   *pricePointer = newPrice;
   return 0;
 }
