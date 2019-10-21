@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-srand(time(NULL));
-struct food {char[] name; double price;};
+struct food {char * name; double price;};
 
 //Write a function that returns an example of your struct when run.
 struct food returnStruct()
@@ -19,9 +18,11 @@ struct food returnStruct()
 int printOut(struct food theFood)
 {
   char * answer;
-  answer = strcat("the name is \"", (char *)theFood.name, strlen((char *)theFood.name));
+  int lengthOfName = strlen((char[])theFood.name);
+  int lengthOfPrice = strlen((char[])theFood.price;
+  answer = strcat("the name is \"", (char[])theFood.name, lengthOfName);
   answer1 = strcat(answer, "and the price is ", strlen("and the price is "));
-  answer2 = strcat(answer1, (char *)theFood.price, strlen((char *)theFood.price);
+  answer2 = strcat(answer1, (char[])theFood.price, lengthOfPrice);
   printf("%s", answer2);
 }
 
