@@ -3,14 +3,19 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct food {char *name; double price;};
+struct food
+{
+  char name[100];
+  double price;
+};
 
 //Write a function that returns an example of your struct when run.
 struct food returnStruct()
 {
+  srand(time(NULL));
   double cost = rand();
   struct food answer;
-  answer.name = "candy";
+  strncat(answer.name, "candy", strlen("candy"));
   answer.price = cost;
   return answer;
 }
@@ -18,19 +23,20 @@ struct food returnStruct()
 //Write a function that prints out variables of your structs type in a reasonable way.
 int printOut(struct food theFood)
 {
-  char * answer;
+  char answer[1000] = "the name is \"";
   char priceString[100];
   sprintf(priceString, "%d", theFood.price);
   int lengthOfName = strlen(theFood.name);
   int lengthOfPrice = strlen(priceString);
-  answer = strcat("the name is \"", theFood.name);
-  char * answer1 = strcat(answer, "and the price is ");
-  char * answer2 = strcat(answer1, priceString);
-  printf("%s", answer2);
+  strncat(answer, theFood.name, lengthOfName);
+  strncat(answer, "and the price is ", strlen("and the price is "));
+  strncat(answer, priceString, strlen(priceString));
+  printf("%s", answer);
+  return 0;
 }
 
 //Write a function that modifies values of your struct's type.
-int modify(struct food victim, char *namePointer, double *pricePointer, char * newName, double newPrice)
+int modify(struct food victim, char *namePointer, double *pricePointer, char newName[100], double newPrice)
 {
   *namePointer = newName;
   *pricePointer = newPrice;
