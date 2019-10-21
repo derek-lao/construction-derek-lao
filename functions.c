@@ -2,12 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-struct food
-{
-  char name[100];
-  double price;
-};
+#include "food.h"
 
 //Write a function that returns an example of your struct when run.
 struct food returnStruct()
@@ -25,7 +20,7 @@ int printOut(struct food theFood)
 {
   char answer[1000] = "the name is \"";
   char priceString[100];
-  sprintf(priceString, "%d", theFood.price);
+  sprintf(priceString, "%f", theFood.price);
   int lengthOfName = strlen(theFood.name);
   int lengthOfPrice = strlen(priceString);
   strncat(answer, theFood.name, lengthOfName);
