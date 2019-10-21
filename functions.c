@@ -1,8 +1,9 @@
 #include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-struct food {char * name; double price;};
+struct food {char *name; double price;};
 
 //Write a function that returns an example of your struct when run.
 struct food returnStruct()
@@ -18,16 +19,18 @@ struct food returnStruct()
 int printOut(struct food theFood)
 {
   char * answer;
-  int lengthOfName = strlen((char[])theFood.name);
-  int lengthOfPrice = strlen((char[])theFood.price;
-  answer = strcat("the name is \"", (char[])theFood.name, lengthOfName);
-  answer1 = strcat(answer, "and the price is ", strlen("and the price is "));
-  answer2 = strcat(answer1, (char[])theFood.price, lengthOfPrice);
+  char priceString[100];
+  sprintf(priceString, "%d", theFood.price);
+  int lengthOfName = strlen(theFood.name);
+  int lengthOfPrice = strlen(priceString);
+  answer = strcat("the name is \"", theFood.name);
+  char * answer1 = strcat(answer, "and the price is ");
+  char * answer2 = strcat(answer1, priceString);
   printf("%s", answer2);
 }
 
 //Write a function that modifies values of your struct's type.
-int modify(struct food victim, double *namePointer, double *pricePointer, char * newName, double newPrice)
+int modify(struct food victim, char *namePointer, double *pricePointer, char * newName, double newPrice)
 {
   *namePointer = newName;
   *pricePointer = newPrice;
