@@ -14,10 +14,12 @@ int main()
   printf("about to print out pig struct\n");
   printOut(pig);
   printf("finished printing out pig\n\n");
+
   printf("going to initialize \"struct food randomCandy\", with \"candy\" as name and a random price\n");
   struct food randomCandy = returnStruct();
   printOut(randomCandy);
   printf("finished printing out randomCandy\n\n");
+  
   printf("going to modify pig struct to have \"beef\" as name and 2.0 as price\n");
   modify(pig, &pig.name, &pig.price, "beef", 2.0);
   printf("finished modifying pig\n");

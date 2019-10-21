@@ -11,6 +11,7 @@ struct food returnStruct()
   double cost = rand();
   struct food answer;
   strncat(answer.name, "candy", strlen("candy"));
+  // answer.name = "candy";
   answer.price = cost;
   return answer;
 }
@@ -18,16 +19,7 @@ struct food returnStruct()
 //Write a function that prints out variables of your structs type in a reasonable way.
 int printOut(struct food theFood)
 {
-  char answer[1000] = "The name is \"";
-  char priceString[100];
-  sprintf(priceString, "%f", theFood.price);
-  int lengthOfName = strlen(theFood.name);
-  int lengthOfPrice = strlen(priceString);
-  strncat(answer, theFood.name, lengthOfName);
-  strncat(answer, "\" and the price is ", strlen("\" and the price is "));
-  strncat(answer, priceString, strlen(priceString));
-  strncat(answer, "\n", strlen("\n"));
-  printf("%s", answer);
+  printf("The name is \"%s\" and the price is %f\n", theFood.name, theFood.price);
   return 0;
 }
 
