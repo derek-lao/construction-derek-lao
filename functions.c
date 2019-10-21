@@ -1,13 +1,13 @@
 #include <time.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-struct food {char * name; double price;};
+srand(time(NULL));
+struct food {char[] name; double price;};
 
 //Write a function that returns an example of your struct when run.
 struct food returnStruct()
 {
-  srand(time(NULL));
   double cost = rand();
   struct food answer;
   answer.name = "candy";
@@ -16,15 +16,17 @@ struct food returnStruct()
 }
 
 //Write a function that prints out variables of your structs type in a reasonable way.
-char * printOut(struct food theFood)
+int printOut(struct food theFood)
 {
   char * answer;
-  answer = "the name is \"" + theFood.name + "\" and the price is " + theFood.price;
-  return answer;
+  answer = strcat("the name is \"", (char *)theFood.name, strlen((char *)theFood.name));
+  answer1 = strcat(answer, "and the price is ", strlen("and the price is "));
+  answer2 = strcat(answer1, (char *)theFood.price, strlen((char *)theFood.price);
+  printf("%s", answer2);
 }
 
 //Write a function that modifies values of your struct's type.
-int modify(struct food victim, double namePointer, double pricePointer, char * newName, double newPrice)
+int modify(struct food victim, double *namePointer, double *pricePointer, char * newName, double newPrice)
 {
   *namePointer = newName;
   *pricePointer = newPrice;

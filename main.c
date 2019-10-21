@@ -6,4 +6,5 @@ int main()
   pig.price = 1.0;
   struct food randomCandy = returnStruct();
   printf("%s", printOut(pig));
+  return 0;
 }

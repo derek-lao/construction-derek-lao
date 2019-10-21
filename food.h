@@ -1,5 +1,3 @@
-#include <time.h>
-
 struct food {char * name; double price};
 
 //Write a function that returns an example of your struct when run.
