@@ -10,7 +10,8 @@ struct food returnStruct()
   srand(time(NULL));
   double cost = rand();
   struct food answer;
-  strncat(answer.name, "candy", strlen("candy"));
+  strncpy(answer.name, "candy", strlen("candy"));
+  // printf("This is testing, the name of the struct is %s and here is testing if there is a new line\n", answer.name);
   // answer.name = "candy";
   answer.price = cost;
   return answer;
